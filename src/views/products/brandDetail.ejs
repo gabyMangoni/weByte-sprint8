@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+        
+        <main id="pd_main-container">
+                <div class="container">
+                    <div class="link-ruta">
+                        <nav>
+                            <ul>
+                                <li>></li>
+                                <li><a href="/"><strong>Atras</strong></a></li>
+                                <li>/</li>
+                                <li><a href="/admin">Administrador</a></li>   
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="pd_tit-categoria">Marcas </div>
+                </div>
+
+            <section id="pd_listado-products" >
+                <div class="container">
+                    <p style="display: none;">Marca: <%= brand.name %> </p>
+
+    <form action="/brand/update/<%= brand.id %>?_method=PUT" method="POST">
+        <label for="title">Modificar Marca</label>
+        <p><input type="text" name="name" id="" value="<%= brand.name %>" required></p>
+        <button type="submit" class="pd_gl-cta pd_gl-cta--primary">
+            <span class="pd_gl-cta__content">
+                Editar Marca
+            </span>
+        </button>
+    </form>
+    <br><hr><br>
+    <div class="flex">
+    <form onSubmit="return confirm('¿Estas seguro de querer borrar la marca <%= brand.name %>?') " action="/brand/destroy/<%= brand.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="pd_gl-cta pd_gl-cta--primary">
+            <span class="pd_gl-cta__content">
+                Eliminar Marca
+            </span>
+        </button>
+    </form>
+    <br><br>
+    <button type="submit" class="pd_gl-cta pd_gl-cta--primary p20">
+        <span class="pd_gl-cta__content">
+            <a  class="botonVolver" href="/brand">Listado de Marcas</a>
+        </span>
+    </button>
+</div>
+                </div>
+            </section>
+
+            
+        
+            <%- include('../partials/newsletter') %>
+
+            <%- include('../partials/prefooter') %>
+        </main>
+        
+        <%- include('../partials/footer') %>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+          })
+        </script>
+
+    </body>
+</html>

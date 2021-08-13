@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../partials/head') %>
+
+    <body>
+
+        <%- include('../partials/header') %>
+
+                <main id="pd_main-container">
+                    <div class="container">
+                        <div class="tituloSection">
+                            <br><br>
+                            <h2>Hola! <%= users.firstName %> </h2>
+                        </div><div class="flex">
+                        <div> 
+                            <img src="/avatars/<%= users.avatar %>" alt="<%= users.firstName %> " class="avatar">
+                            </div>
+                            <div class="profile"> 
+                            <p>Nombre: <%= users.firstName %> </p>
+                            <p>Apellido: <%= users.lastName %> </p>
+                            <p>Usuario: <%= users.userName %> </p>
+                            <p>Email: <%= users.email %> </p>
+                            <p>Rol: <%= users.rol.name %> </p>
+                            <section class="flex">
+                                <div>
+                                <button type="button" class="pd_gl-cta pd_gl-cta--primary">
+                                    <span class="pd_gl-cta__content">
+                                        <a class="botonModificar" href="/users/edit/<%= users.id %>">Modificar</a> 
+                                    </span>
+                                </button>
+                            </div>
+                                <div class="p20">
+                                <form action="/users/delete/<%= users.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="pd_gl-cta pd_gl-cta--primary">
+                                        <span class="pd_gl-cta__content">
+                                            Eliminar Usuario
+                                        </span>
+                                    </button>
+                                </form></div>
+                                <div class="p20">
+                                <button type="button" class="pd_gl-cta pd_gl-cta--primary">
+                                    <span class="pd_gl-cta__content">
+                                        <a href="/users" class="botonModificar">Listado de usuarios</a>
+                                    </span>
+                                </button>
+                                </div>
+                            </section>
+                        </div > 
+                    </div><!--aca-->
+                 </div>
+            </section>
+        </main>
+        
+        <%- include('../partials/footer') %>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+          })
+        </script>
+
+    </body>
+</html>

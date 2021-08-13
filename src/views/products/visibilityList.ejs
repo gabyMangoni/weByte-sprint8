@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+        
+        <main id="pd_main-container">
+                <div class="container">
+                    <div class="link-ruta">
+                        <nav>
+                            <ul>
+                                <li>></li>
+                                <li><a href="/"><strong>Atras</strong></a></li>
+                                <li>/</li>
+                                <li><a href="/admin">Administrador</a></li>   
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="pd_tit-categoria">Estados </div>
+                </div>
+
+            <section id="pd_listado-products" >
+                <div class="container">
+                    <div>    
+                        <form action="/visibility/create" id="form-visibility"  method="POST">
+                        <div class="fr_nombre">
+                            <label class="fr_lbltexto">ABM Estados</label>
+                            <input type="text" name="name" id="name" required>
+                            <span id="name_error" class="error is-invalid">
+                                <%= locals && locals.errors && locals.errors.name &&
+                                    locals.errors.name.msg %>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="fr_registro">
+                            <div class="fr_registro-left">
+                                <button type="submit" class="pd_gl-cta pd_gl-cta--primary">
+                                    <span class="pd_gl-cta__content">
+                                        Crear
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form> 
+                     </div>
+                     <br><hr><br>
+                     <label class="fr_lbltexto">Listado de Estados</label>
+                    <ul>
+                        <% for( let i = 0; i < visibilities.length; i++ ) { %>
+                        <li class="listado">
+                            <a href="visibility/detail/<%= visibilities[i].id %>"><%= visibilities[i].name %></a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </section>
+        
+            <%- include('../partials/newsletter') %>
+
+            <%- include('../partials/prefooter') %>
+        </main>
+        
+        <%- include('../partials/footer') %>
+        <script src="/js/validator/form-visibility-validation.js"></script>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+          })
+        </script>
+
+    </body>
+</html>

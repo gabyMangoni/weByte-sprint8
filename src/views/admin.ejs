@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('partials/head') %>
+
+    <body class="productDetails">
+        <%- include('partials/header') %>
+        
+        <main id="pd_main-container">
+            <section>
+                <div class="container link-ruta">
+                    <nav>
+                        <ul>
+                            <li>></li>
+                            <li><a href="/"><strong>Atras</strong></a></li>
+                            <li>/</li>
+                            <li><a href="/admin">Administrador</a></li>   
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="pd_tit-categoria">Administrador</div>
+                    <div class="pd_producto-img">
+                        <div class="pd_prod-left">
+                            <ul>
+                            <li> <a href="product/add">Alta de Productos</a></li>
+                            <li> <a href="/category">Alta de Categoria</a></li>
+                            <li> <a href="/brand">Alta de Marca</a></li>
+                            <li> <a href="/color">Alta de Colores</a></li>
+                            <li> <a href="/size">Alta de Talles</a></li>
+                            <li> <a href="/visibility">Alta de Estado</a></li>
+                            <li> <a href="/users">Alta de Usuarios</a></li>
+                        </ul></div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            
+
+        </main>
+
+
+        <%- include('partials/newsletter') %>
+
+        <%- include('partials/prefooter') %>
+        
+        <%- include('partials/footer') %>
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+          })
+        </script>
+
+    </body>
+</html>
